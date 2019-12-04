@@ -1,7 +1,7 @@
 from unittest import TestCase
-from .main import calc, calc_with_fuel
+from day_01.main import calc, calc_with_fuel
 
-class Test(TestCase):
+class TestDay01(TestCase):
 
     def test_case_1(self):
         cases = [

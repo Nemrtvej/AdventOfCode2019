@@ -1,7 +1,7 @@
 from unittest import TestCase
-from .main import process_input
+from day_02.main import process_input
 
-class Test(TestCase):
+class TestDay02(TestCase):
 
     def test(self):
         cases = [
