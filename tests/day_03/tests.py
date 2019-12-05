@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from day_03.main import Line, Point, IntersectionCalculator, Builder, Solver
+from day_03.main import Line, Point, IntersectionCalculator, Builder, Solver, StackOverflowCalculator
 
 
 class TestDay03(TestCase):
@@ -15,6 +15,25 @@ class TestDay03(TestCase):
             first_point, second_point, expected_distance = case
             actual_distance = first_point.manhattan_distance(second_point)
             self.assertEqual(expected_distance, actual_distance)
+
+    def test_calculator(self):
+        cases = [
+            (
+                [(0.5, 0.5), (1.5, 0.5)], [(1, 0), (1, 2)], (1, 0.5),
+            ),
+            (
+                [(0, 0), (8, 0)], [(6, 7), (6, 3)], False,
+            ),
+            (
+                [(0, 0), (8, 0)], [(6, 7), (0, 0)], (0, 0),
+            ),
+        ]
+
+        calculator = StackOverflowCalculator()
+        for case in cases:
+            first_line, second_line, expected_result = case
+            actual_result = calculator.line_intersection(first_line, second_line)
+            self.assertEqual(expected_result, actual_result)
 
     def test_geometry(self):
         cases = [
